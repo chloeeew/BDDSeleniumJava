@@ -1,41 +1,32 @@
 package com.demo.base;
-
+import com.demo.utils.DriverFactory;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.WebElement;
+
+import java.util.concurrent.TimeUnit;
+
 
 public class BaseTest {
-    public WebDriver ChromeDriverFactory(){
-        System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
-        return new ChromeDriver();
+    Logger logger = Logger.getLogger(BaseTest.class);
+    protected WebDriver driver = null;
+
+    public void toURL(String browser,String url){
+        driver = DriverFactory.getDriver(browser);
+        driver.get(url);
+        logger.info("heading to " + url);
+    }
+    public void maximizeWindow(){
+        driver.manage().window().maximize();
+        logger.info("maximize browser window");
+    }
+    public void setImplicitWait(long secondTime){
+        driver.manage().timeouts().implicitlyWait(secondTime, TimeUnit.SECONDS);
     }
 
-    public  WebDriver FirefoxFactory(){
-        System.setProperty("webdriver.geckodriver.driver","src/test/resources/geckodriver.exe");
-        return new FirefoxDriver();
-    }
-
-    public  WebDriver IEFactory(){
-        // ignore the protected mode setting in IE
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-        // ignore zoom setting
-        capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING,true);
-        System.setProperty("webdriver.ie.driver","src/test/resources/IEDriverServer.exe");
-        return new InternetExplorerDriver(capabilities);
-    }
-    public  WebDriver OpenBrowser(String browserName){
-        if(browserName.equalsIgnoreCase("Firefox")){
-            return FirefoxFactory();
-        }else if(browserName.equalsIgnoreCase("Chrome")){
-            return ChromeDriverFactory();
-        }else if(browserName.equalsIgnoreCase("IE")){
-            return IEFactory();
-        }else{
-            System.out.println("WRONG BROWSER!! please check your browser name");
-            return ChromeDriverFactory();
-        }
+    public void quitDriver() throws Exception{
+        Thread.sleep(5000);
+        logger.info("browser is closing");
+        driver.quit();
     }
 }

@@ -40,19 +40,22 @@ public class LoginPage extends BasePage {
 
     public boolean is_valid_create_account_email(){
         WebElement trueEmailEle = driver.findElement(trueCreateEmailLocator);
-        return trueEmailEle.isDisplayed();
+        boolean result = trueEmailEle.isDisplayed();
+        logger.info("check create account email input box is valid: "+result);
+        return result;
     }
 
 
     public void click_create_an_account_button(){
-        WebElement createButtonEle = driver.findElement(createButtonLocator);
-        createButtonEle.click();
+        click_element(driver,createButtonLocator);
+//        WebElement createButtonEle = driver.findElement(createButtonLocator);
+//        createButtonEle.click();
 
     }
 
-    public void create_personal_info_for_register(int gender,String custom_firstname,
-                                                  String custom_lastname,String address,String city,String states,
-                                                  String zipcode,String country,String mobile_phone){
+    public void create_personal_info_for_register(int gender, String custom_firstname,
+                                                  String custom_lastname, String pwd, String address, String city,
+                                                  String zipcode, String mobile_phone) throws InterruptedException {
         By genderLocator;
         if(gender==0){
             genderLocator = titleMrsRadioLocator;
@@ -60,15 +63,18 @@ public class LoginPage extends BasePage {
             genderLocator = titleMrRadioLocator;
         }
         click_element(driver,genderLocator);
-        input_text(driver,firstnameInputLocator,custom_firstname);
-        input_text(driver,lastnameInputLocator,custom_lastname);
+        input_text(driver,firstnameInputLocator,custom_firstname,"input customer first name");
+        input_text(driver,lastnameInputLocator,custom_lastname,"input customer last name");
+        input_text(driver,pwdInputLocator,pwd);
 
-        input_text(driver,addressLocator,address);
+        input_text(driver,addressLocator,address,"input address locator");
+        scroll_to_top(driver,addressLocator);
+        Thread.sleep(2000);
+        select_from_radio_drop_down(driver,countryLocator,"United States");
 
-        input_text(driver,cityLocator,city);
+        select_from_radio_drop_down(driver,stateLocator,"Utah");
         input_text(driver,zipLocator,zipcode);
-        select_from_radio_drop_down(driver,countryLocator,"usa");
-        select_from_radio_drop_down(driver,cityLocator,"aaa");
+        input_text(driver,cityLocator,city);
         input_text(driver,phoneLocator,mobile_phone);
 
     }
