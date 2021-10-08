@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
+    By emailLoginLocator = By.cssSelector("#email");
+    By pwdLoginLocator = By.cssSelector("#passwd");
+    By loginBtnLocator = By.cssSelector("#SubmitLogin");
     By emailAddressLocator = By.cssSelector("#email_create");
     By trueCreateEmailLocator = By.cssSelector(".form-group.form-ok");
     By createButtonLocator = By.cssSelector("#SubmitCreate");
@@ -27,6 +30,12 @@ public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+    }
+
+    public void login_by_email_and_password(String email,String pwd){
+        input_text(emailLoginLocator,email);
+        input_text(pwdLoginLocator,pwd);
+        click_element(loginBtnLocator);
     }
 
     public void send_text_to_create_account_by_email(String emailAddress) throws InterruptedException {

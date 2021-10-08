@@ -2,17 +2,13 @@ package com.demo.testcases;
 
 import com.demo.base.BaseTest;
 import com.demo.data.Constants;
+import com.demo.pages.HomePage;
 import com.demo.pages.IndexPage;
 import com.demo.pages.LoginPage;
 import com.demo.utils.Assertion;
-import com.demo.utils.DriverFactory;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 public class TestRegister extends BaseTest {
     @BeforeTest
@@ -38,7 +34,10 @@ public class TestRegister extends BaseTest {
         loginPage.create_personal_info_for_register(0,"Www",
                 "ddeji","aaa22222","dfejiw","23345","87979","3034923");
         // Click on Register Button
-//        loginPage.click_register_button();
+        loginPage.click_register_button();
+
+        HomePage homePage = new HomePage(driver);
+        Assertion.assertTrue(homePage.check_account_is_welcomed());
         // Validate that user is created
     }
 

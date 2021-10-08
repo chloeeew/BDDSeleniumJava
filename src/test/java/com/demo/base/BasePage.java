@@ -173,6 +173,12 @@ public class BasePage {
         return result;
     }
 
+    public boolean is_element_text_contains_text(By locator,String text){
+        WebElement element = locate_element(locator);
+        String textElement = element.getText();
+        return textElement.contains(text);
+    }
+
     public void switch_to_iframe(By locator){
         try {
             WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
