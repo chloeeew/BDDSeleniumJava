@@ -12,6 +12,6 @@ public class IndexPage extends BasePage {
     }
 
     public void click_sign_in_button(){
-        click_element(driver,signInLocator);
+        click_element(signInLocator);
     }
 }

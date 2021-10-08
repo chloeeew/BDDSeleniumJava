@@ -47,9 +47,7 @@ public class LoginPage extends BasePage {
 
 
     public void click_create_an_account_button(){
-        click_element(driver,createButtonLocator);
-//        WebElement createButtonEle = driver.findElement(createButtonLocator);
-//        createButtonEle.click();
+        click_element(createButtonLocator);
 
     }
 
@@ -62,24 +60,24 @@ public class LoginPage extends BasePage {
         }else {
             genderLocator = titleMrRadioLocator;
         }
-        click_element(driver,genderLocator);
-        input_text(driver,firstnameInputLocator,custom_firstname,"input customer first name");
-        input_text(driver,lastnameInputLocator,custom_lastname,"input customer last name");
-        input_text(driver,pwdInputLocator,pwd);
+        click_element(genderLocator);
+        input_text(firstnameInputLocator,custom_firstname,"input customer first name");
+        input_text(lastnameInputLocator,custom_lastname,"input customer last name");
+        input_text(pwdInputLocator,pwd);
 
-        input_text(driver,addressLocator,address,"input address locator");
-        scroll_to_top(driver,addressLocator);
+        input_text(addressLocator,address,"input address locator");
+        scroll_to_top(addressLocator);
         Thread.sleep(2000);
-        select_from_radio_drop_down(driver,countryLocator,"United States");
+        select_from_radio_drop_down(countryLocator,"United States");
 
-        select_from_radio_drop_down(driver,stateLocator,"Utah");
-        input_text(driver,zipLocator,zipcode);
-        input_text(driver,cityLocator,city);
-        input_text(driver,phoneLocator,mobile_phone);
+        select_from_radio_drop_down(stateLocator,"Utah");
+        input_text(zipLocator,zipcode);
+        input_text(cityLocator,city);
+        input_text(phoneLocator,mobile_phone);
 
     }
 
     public void click_register_button(){
-        click_element(driver,registerButtonLocator);
+        click_element(registerButtonLocator);
     }
 }
