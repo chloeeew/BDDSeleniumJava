@@ -1,5 +1,4 @@
 package com.demo.testcases;
-
 import com.demo.base.BaseTest;
 import com.demo.data.Constants;
 import com.demo.pages.HomePage;
