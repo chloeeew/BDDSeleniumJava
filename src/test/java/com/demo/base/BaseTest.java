@@ -2,7 +2,6 @@ package com.demo.base;
 import com.demo.utils.DriverFactory;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +11,8 @@ public class BaseTest {
     protected WebDriver driver = null;
 
     public void toURL(String browser,String url){
-        driver = DriverFactory.getDriver(browser);
+        driver = DriverFactory.getDriverSingleton(browser);
+        driver.manage().deleteAllCookies();
         driver.get(url);
         logger.info("heading to " + url);
     }
@@ -25,7 +25,6 @@ public class BaseTest {
     }
 
     public void quitDriver() throws Exception{
-        Thread.sleep(5000);
         logger.info("browser is closing");
         driver.quit();
     }

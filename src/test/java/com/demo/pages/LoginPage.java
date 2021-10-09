@@ -27,6 +27,7 @@ public class LoginPage extends BasePage {
     By countryLocator = By.cssSelector("#id_country");
     By phoneLocator = By.cssSelector("#phone_mobile");
     By registerButtonLocator = By.cssSelector("#submitAccount");
+    By alertDangerTipsLct = By.xpath("//div[contains(@class,'alert-danger')]/ol/li");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -88,5 +89,9 @@ public class LoginPage extends BasePage {
 
     public void click_register_button(){
         click_element(registerButtonLocator);
+    }
+
+    public String get_alert_danger_tip(){
+        return get_element_text(alertDangerTipsLct);
     }
 }

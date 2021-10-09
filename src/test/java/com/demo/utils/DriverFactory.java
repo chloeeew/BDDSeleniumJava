@@ -13,10 +13,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class DriverFactory {
     private static Logger logger = Logger.getLogger(DriverFactory.class);
     private static WebDriver driver = null;
-    public static WebDriver getDriver(String browser){
+    public static WebDriver getDriverSingleton(String browser){
         try {
-            if (driver == null) {
-                driver = OpenBrowser(browser);
+            if(driver==null){
+                synchronized (DriverFactory.class){
+                    if (driver == null) {
+                        driver = OpenBrowser(browser);
+                    }
+                }
             }
         }catch (Exception e){
             logger.error(e);
@@ -24,6 +28,8 @@ public class DriverFactory {
         }
         return driver;
     }
+
+
     private static WebDriver ChromeDriverFactory(){
         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
         logger.info("Open Chrome Browser");
@@ -59,6 +65,10 @@ public class DriverFactory {
             logger.warn("wrong browser name, please check. Open default chrome browser for you");
             return ChromeDriverFactory();
         }
+    }
+
+    public static WebDriver getDriver(String browser){
+        return OpenBrowser(browser);
     }
 
 }

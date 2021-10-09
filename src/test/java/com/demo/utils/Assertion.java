@@ -10,11 +10,13 @@ public class Assertion {
             Assert.assertEquals(expected, actual);
         }catch (AssertionError ae){
             logger.error(ae);
-            logger.error("Actual result "+ actual +" is not equivalent to expected result "+ expected);
+            logger.error("Actual result ["+ actual +"] is not equivalent to expected result ["+ expected+"]");
             throw ae;
         }
-        logger.info("Actual result "+ actual +" is equivalent to expected result "+ expected);
+        logger.info("Actual result ["+ actual +"] is equivalent to expected result ["+ expected+"]");
     }
+
+
 
     public static void assertTrue(boolean condition){
         try {

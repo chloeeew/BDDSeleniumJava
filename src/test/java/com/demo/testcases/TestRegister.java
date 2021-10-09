@@ -23,7 +23,7 @@ public class TestRegister extends BaseTest {
         indexPage.click_sign_in_button();
         // enter your email address in 'Create and account' section(Scroll to the element first)
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.send_text_to_create_account_by_email("t124@qq.com");
+        loginPage.send_text_to_create_account_by_email("t128@qq.com");
 
         // click on 'Create an Account button'
         loginPage.click_create_an_account_button();

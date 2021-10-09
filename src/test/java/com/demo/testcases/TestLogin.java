@@ -8,7 +8,7 @@ import com.demo.utils.Assertion;
 import org.testng.annotations.*;
 
 public class TestLogin extends BaseTest {
-    @BeforeTest
+    @BeforeMethod
     public void setup(){
         toURL("chrome", Constants.ECOMMERCE_URL);
         maximizeWindow();
@@ -23,11 +23,19 @@ public class TestLogin extends BaseTest {
         HomePage homePage = new HomePage(driver);
         Assertion.assertTrue(homePage.check_account_is_welcomed());
         Assertion.assertTrue(homePage.check_account_owner_by_string("Www ddeji"));
-
     }
 
-    @AfterTest
-    public void teardown() throws Exception {
-        quitDriver();
+    @Test
+    public void test_user_login_pwd_lack_one_character(){
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.click_sign_in_button();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login_by_email_and_password("t124@qq.com","aaa2222");
+        Assertion.assertEqualString("Authentication failed.",loginPage.get_alert_danger_tip());
     }
+
+
+
+
+
 }
