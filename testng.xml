@@ -3,6 +3,7 @@
 <suite name="All Test Suite">
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
+        <listener class-name="com.demo.listener.TestFailListener"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/Chloe_Wang1/IdeaProjects/BDDSeleniumJava/src">
         <classes>
@@ -14,6 +15,7 @@
             <class name="com.demo.testcases.TestLogin">
                 <methods>
                     <include name="test_user_login"/>
+                    <include name="test_user_login_pwd_lack_one_character"/>
                 </methods>
             </class>
         </classes>

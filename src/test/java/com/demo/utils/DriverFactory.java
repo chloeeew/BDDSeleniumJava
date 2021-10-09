@@ -67,8 +67,9 @@ public class DriverFactory {
         }
     }
 
-    public static WebDriver getDriver(String browser){
+    public static WebDriver getNewDriver(String browser){
         return OpenBrowser(browser);
     }
+    public static WebDriver getCurrentDriver(){return driver;}
 
 }
