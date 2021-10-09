@@ -6,9 +6,7 @@ import com.demo.pages.HomePage;
 import com.demo.pages.IndexPage;
 import com.demo.pages.LoginPage;
 import com.demo.utils.Assertion;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class TestRegister extends BaseTest {
     @BeforeTest
@@ -25,7 +23,7 @@ public class TestRegister extends BaseTest {
         indexPage.click_sign_in_button();
         // enter your email address in 'Create and account' section(Scroll to the element first)
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.send_text_to_create_account_by_email("t123@qq.com");
+        loginPage.send_text_to_create_account_by_email("t124@qq.com");
 
         // click on 'Create an Account button'
         loginPage.click_create_an_account_button();
