@@ -1,4 +1,4 @@
-package com.demo.utils;
+package com.framework.utils;
 
 import com.epam.reportportal.message.ReportPortalMessage;
 import org.apache.commons.io.FileUtils;

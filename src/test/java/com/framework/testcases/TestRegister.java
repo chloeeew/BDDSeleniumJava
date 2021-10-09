@@ -1,11 +1,11 @@
-package com.demo.testcases;
+package com.framework.testcases;
 
-import com.demo.base.BaseTest;
-import com.demo.data.Constants;
-import com.demo.pages.HomePage;
-import com.demo.pages.IndexPage;
-import com.demo.pages.LoginPage;
-import com.demo.utils.Assertion;
+import com.framework.base.BaseTest;
+import com.framework.data.Constants;
+import com.framework.pages.HomePage;
+import com.framework.pages.IndexPage;
+import com.framework.pages.LoginPage;
+import com.framework.utils.Assertion;
 import org.testng.annotations.*;
 
 public class TestRegister extends BaseTest {

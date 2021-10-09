@@ -1,6 +1,5 @@
-package com.demo.base;
+package com.framework.base;
 
-import com.epam.reportportal.message.ReportPortalMessage;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;

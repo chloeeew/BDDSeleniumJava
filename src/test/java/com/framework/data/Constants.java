@@ -1,4 +1,4 @@
-package com.demo.data;
+package com.framework.data;
 
 public class Constants {
     public static final String ECOMMERCE_URL = "http://automationpractice.com/index.php";

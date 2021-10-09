@@ -1,4 +1,4 @@
-package com.demo.utils;
+package com.framework.utils;
 
 import org.apache.log4j.Logger;
 

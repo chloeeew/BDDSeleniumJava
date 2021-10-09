@@ -1,5 +1,5 @@
-package com.demo.base;
-import com.demo.utils.DriverFactory;
+package com.framework.base;
+import com.framework.utils.DriverFactory;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 

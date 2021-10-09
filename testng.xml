@@ -3,16 +3,16 @@
 <suite name="All Test Suite">
     <listeners>
         <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener"/>
-        <listener class-name="com.demo.listener.TestFailListener"/>
+        <listener class-name="com.framework.listener.TestFailListener"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/Chloe_Wang1/IdeaProjects/BDDSeleniumJava/src">
         <classes>
-            <class name="com.demo.testcases.TestRegister">
+            <class name="com.framework.testcases.TestRegister">
                 <methods>
                     <include name="test_user_registration"/>
                 </methods>
             </class>
-            <class name="com.demo.testcases.TestLogin">
+            <class name="com.framework.testcases.TestLogin">
                 <methods>
                     <include name="test_user_login"/>
                     <include name="test_user_login_pwd_lack_one_character"/>
