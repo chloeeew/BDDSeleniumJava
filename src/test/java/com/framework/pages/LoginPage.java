@@ -33,9 +33,13 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void login_by_email_and_password(String email,String pwd){
+    public void login_type_email_and_password(String email, String pwd){
         input_text(emailLoginLocator,email);
         input_text(pwdLoginLocator,pwd);
+
+    }
+
+    public void click_login_button(){
         click_element(loginBtnLocator);
     }
 
