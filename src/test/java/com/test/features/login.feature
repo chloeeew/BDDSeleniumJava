@@ -20,16 +20,17 @@
 Feature: Login
   login test in login page
 
-  Scenario Outline: Smoke Test
+  @Smoke
+  Scenario Outline: Login-Smoke Test
     Given Type "<username>" as username and "<password>" as password
     When Click Sign in button
     Then Account "<accountName>" is shown in right top corner and being welcomed in Home page
   Examples:
     | username     | password |accountName |
-    | t124@qq.com  | aaa22222 | Www ddeji  |
+    | t124@qq.com  | aaa22222 | Www ddeji1  |
 
 
-  Scenario Outline: Negative Test
+  Scenario Outline: Login-Negative Test <Situation>
     Given Type "<username>" as username and "<password>" as password
     When Click Sign in button
     Then An alert tip "<alertTip>" is shown in login page

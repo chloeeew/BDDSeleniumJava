@@ -13,11 +13,9 @@ import org.testng.annotations.AfterMethod;
 @CucumberOptions(
         features = {"src/test/java/com/test/features"},
         glue = "com.test.stepdefinition",
+//        tags = "@Smoke",
         monochrome = true
 )
 public class EcommerceRunner extends AbstractTestNGCucumberTests {
-    @AfterMethod
-    public void teardown(){
-        BaseTest.driver.quit();
-    }
+
 }

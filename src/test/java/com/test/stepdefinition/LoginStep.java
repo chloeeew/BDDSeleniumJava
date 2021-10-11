@@ -7,11 +7,15 @@ import com.framework.pages.HomePage;
 import com.framework.pages.IndexPage;
 import com.framework.pages.LoginPage;
 import com.framework.utils.Assertion;
+import com.framework.utils.ScreenshotUtil;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import java.io.IOException;
 
 public class LoginStep extends BaseTest {
     LoginPage loginPage;
@@ -67,11 +71,14 @@ public class LoginStep extends BaseTest {
         Assertion.assertEqualString(alert,loginPage.get_alert_danger_tip());
     }
 
-//    @After
-//    public void teardown() throws Exception{
-//        Thread.sleep(3000);
-//        quitDriver();
-//    }
+    @After
+    public void teardown(Scenario scenario) throws IOException {
+        if(scenario.isFailed()){
+            ScreenshotUtil.getScreenshotAsFile(driver,scenario.getName());
+            ScreenshotUtil.sendScreenshotToReportPortal(driver,scenario.getName());
+        }
+        quitDriver();
+    }
 
 
 }
