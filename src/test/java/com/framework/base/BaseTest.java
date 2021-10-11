@@ -8,10 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     Logger logger = Logger.getLogger(BaseTest.class);
-    protected WebDriver driver = null;
+    public static WebDriver driver = null;
 
     public void toURL(String browser,String url){
-        driver = DriverFactory.getDriverSingleton(browser);
+        driver = DriverFactory.getNewDriver(browser);
         driver.manage().deleteAllCookies();
         driver.get(url);
         logger.info("heading to " + url);
@@ -24,7 +24,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(secondTime, TimeUnit.SECONDS);
     }
 
-    public void quitDriver() throws Exception{
+    public void quitDriver() {
         logger.info("browser is closing");
         driver.quit();
     }

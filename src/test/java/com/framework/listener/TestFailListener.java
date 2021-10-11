@@ -1,5 +1,6 @@
 package com.framework.listener;
 
+import com.framework.base.BaseTest;
 import com.framework.utils.DriverFactory;
 import com.framework.utils.ScreenshotUtil;
 import org.openqa.selenium.WebDriver;
@@ -17,8 +18,9 @@ public class TestFailListener implements IHookable {
         iHookCallBack.runTestMethod(iTestResult);
         if(iTestResult.getThrowable() != null){
             try {
-                WebDriver currentDriver = DriverFactory.getCurrentDriver();
+                WebDriver currentDriver = BaseTest.driver;
                 ScreenshotUtil.getScreenshotAsFile(currentDriver,iTestResult.getMethod().getMethodName());
+                ScreenshotUtil.sendSreenshotToReportPortal(currentDriver,iTestResult.getMethod().getMethodName());
             } catch (IOException e) {
                 e.printStackTrace();
             }

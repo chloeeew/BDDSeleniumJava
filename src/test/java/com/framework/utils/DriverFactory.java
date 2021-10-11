@@ -12,7 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class DriverFactory {
     private static Logger logger = Logger.getLogger(DriverFactory.class);
     private static WebDriver driver = null;
-    public static WebDriver getDriverSingleton(String browser){
+    private static WebDriver getDriverSingleton(String browser){
         try {
             if(driver==null){
                 synchronized (DriverFactory.class){
@@ -69,6 +69,6 @@ public class DriverFactory {
     public static WebDriver getNewDriver(String browser){
         return OpenBrowser(browser);
     }
-    public static WebDriver getCurrentDriver(){return driver;}
+    public static WebDriver getSingletonDriver(){return driver;}
 
 }

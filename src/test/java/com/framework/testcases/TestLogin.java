@@ -35,7 +35,10 @@ public class TestLogin extends BaseTest {
     }
 
 
-
+    @AfterMethod
+    public void teardown() {
+        quitDriver();
+    }
 
 
 }

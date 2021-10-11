@@ -1,6 +1,7 @@
 package com.framework.utils;
 
 import com.epam.reportportal.message.ReportPortalMessage;
+import com.epam.reportportal.service.ReportPortal;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -45,6 +46,7 @@ public class ScreenshotUtil {
             TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
             File srcFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
             ReportPortalMessage message = new ReportPortalMessage(srcFile,testcaseName);
+            ReportPortal.emitLog(message,"error",new Date());
         } catch (IOException ioException) {
             logger.error("fail to send screenshot to report portal with test case"+testcaseName);
             logger.error(ioException);

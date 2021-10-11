@@ -9,7 +9,7 @@ import com.framework.utils.Assertion;
 import org.testng.annotations.*;
 
 public class TestRegister extends BaseTest {
-    @BeforeTest
+    @BeforeMethod
     public void setup(){
         toURL("chrome",Constants.ECOMMERCE_URL);
         maximizeWindow();
@@ -39,8 +39,8 @@ public class TestRegister extends BaseTest {
         // Validate that user is created
     }
 
-    @AfterTest
-    public void teardown() throws Exception {
+    @AfterMethod
+    public void teardown() {
         quitDriver();
     }
 
