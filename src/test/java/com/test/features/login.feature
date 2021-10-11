@@ -20,13 +20,21 @@
 Feature: Login
   login test in login page
 
-  Scenario: Smoke Test
-    Given Type "t124@qq.com" as username and "aaa22222" as password
+  Scenario Outline: Smoke Test
+    Given Type "<username>" as username and "<password>" as password
     When Click Sign in button
-    Then Account "Www ddeji" is shown in right top corner and being welcomed in Home page
+    Then Account "<accountName>" is shown in right top corner and being welcomed in Home page
+  Examples:
+    | username     | password |accountName |
+    | t124@qq.com  | aaa22222 | Www ddeji  |
 
 
-  Scenario: Password lack 1 character
-    Given Type "t124@qq.com" as username and "aaa2222" as password
+  Scenario Outline: Negative Test
+    Given Type "<username>" as username and "<password>" as password
     When Click Sign in button
-    Then An alert tip "Authentication failed" is shown in login page
+    Then An alert tip "<alertTip>" is shown in login page
+  Examples:
+    | Situation                 | username         | password | alertTip              |
+    | Lack 1 password character |t124@qq.com       | aaa2222  | Authentication failed.|
+    | Wrong password            |t124@qq.com       | 12derrrr | Authentication failed.|
+    | User yet to register      |t12334444@qq.com  | aaa22222 | Authentication failed.|
