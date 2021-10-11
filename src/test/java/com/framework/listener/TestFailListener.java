@@ -1,7 +1,6 @@
 package com.framework.listener;
 
 import com.framework.base.BaseTest;
-import com.framework.utils.DriverFactory;
 import com.framework.utils.ScreenshotUtil;
 import org.openqa.selenium.WebDriver;
 import org.testng.IHookCallBack;
@@ -20,7 +19,7 @@ public class TestFailListener implements IHookable {
             try {
                 WebDriver currentDriver = BaseTest.driver;
                 ScreenshotUtil.getScreenshotAsFile(currentDriver,iTestResult.getMethod().getMethodName());
-                ScreenshotUtil.sendSreenshotToReportPortal(currentDriver,iTestResult.getMethod().getMethodName());
+                ScreenshotUtil.sendScreenshotToReportPortal(currentDriver,iTestResult.getMethod().getMethodName());
             } catch (IOException e) {
                 e.printStackTrace();
             }

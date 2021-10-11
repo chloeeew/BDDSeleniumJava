@@ -41,7 +41,7 @@ public class ScreenshotUtil {
         return takeScreenshot.getScreenshotAs(OutputType.BYTES);
     }
 
-    public static void sendSreenshotToReportPortal(WebDriver driver,String testcaseName) throws IOException {
+    public static void sendScreenshotToReportPortal(WebDriver driver, String testcaseName) throws IOException {
         try{
             TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
             File srcFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
