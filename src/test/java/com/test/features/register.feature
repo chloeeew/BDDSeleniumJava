@@ -20,14 +20,14 @@
 Feature: Register
   Register test in login page
 
-  @Special
+  @Smoke
   Scenario: RegisterCreateAccountClick-Smoke Test
     Given Type new email to create an account
     When Click on Create an Account button
     Then Display account is valid
 
 
-  @Special
+  @Smoke
   Scenario Outline: RegisterCreateAccount-Smoke Test
     Given Type new valid email to create an account
     And Type "<gender>","<firstname>","<lastname>","<password>","<address>","<city>","<zipcode>","<phone>" in Register form

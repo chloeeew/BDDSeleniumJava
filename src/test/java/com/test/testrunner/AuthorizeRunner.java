@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/java/com/test/features"},
         glue = "com.test.stepdefinition",
-        tags = "@Special",
+        tags = "@Smoke",
         monochrome = true
 )
 public class AuthorizeRunner extends AbstractTestNGCucumberTests {
