@@ -19,9 +19,9 @@ public class ScreenshotUtil {
         String picFile="";
         try {
             Date date = new Date();
-            String picDir = "C:\\errorScreenshot\\"+DataUtils.getDateString(date);
+            String picDir = "C:\\errorScreenshot\\"+ DateUtils.getDateString(date);
             FileUtil.createDir(picDir);
-            picFile = picDir +"\\"+DataUtils.getTimeString(date)+"-"+testcaseName+".png";
+            picFile = picDir +"\\"+ DateUtils.getTimeString(date)+"-"+testcaseName+".png";
 
             TakesScreenshot takesScreenshot = (TakesScreenshot)driver;
             File srcFile = takesScreenshot.getScreenshotAs(OutputType.FILE);

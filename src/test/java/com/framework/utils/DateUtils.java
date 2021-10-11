@@ -6,8 +6,8 @@ import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 
-public class DataUtils {
-    static Logger logger = Logger.getLogger(DataUtils.class);
+public class DateUtils {
+    static Logger logger = Logger.getLogger(DateUtils.class);
 
     public static String format(Date date,String format){
         String result="";

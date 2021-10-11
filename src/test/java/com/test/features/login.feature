@@ -27,7 +27,7 @@ Feature: Login
     Then Account "<accountName>" is shown in right top corner and being welcomed in Home page
   Examples:
     | username     | password |accountName |
-    | t124@qq.com  | aaa22222 | Www ddeji1  |
+    | t124@qq.com  | aaa22222 | Www ddeji  |
 
 
   Scenario Outline: Login-Negative Test <Situation>

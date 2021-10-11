@@ -16,3 +16,25 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+
+Feature: Register
+  Register test in login page
+
+  @Special
+  Scenario: RegisterCreateAccountClick-Smoke Test
+    Given Type new email to create an account
+    When Click on Create an Account button
+    Then Display account is valid
+
+
+  @Special
+  Scenario Outline: RegisterCreateAccount-Smoke Test
+    Given Type new valid email to create an account
+    And Type "<gender>","<firstname>","<lastname>","<password>","<address>","<city>","<zipcode>","<phone>" in Register form
+    When Click on register button
+    Then Account is being welcomed in Home page
+
+  Examples:
+    |gender|firstname|lastname|password|address|city|zipcode|phone       |
+    |woman |kkk      |Wang    |12231223|errrr  |fiie|93999  |23849002    |
+

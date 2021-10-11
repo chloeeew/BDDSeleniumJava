@@ -7,7 +7,7 @@
     </listeners>
     <test verbose="2" preserve-order="true" name="C:/Users/Chloe_Wang1/IdeaProjects/BDDSeleniumJava/src">
         <classes>
-            <class name="com.test.testrunner.EcommerceRunner"/>
+            <class name="com.test.testrunner.AuthorizeRunner"/>
 <!--            <class name="com.framework.testcases.TestRegister">-->
 <!--                <methods>-->
 <!--                    <include name="test_user_registration"/>-->
