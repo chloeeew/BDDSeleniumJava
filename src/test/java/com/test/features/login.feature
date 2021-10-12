@@ -30,12 +30,13 @@ Feature: Login
     | t124@qq.com  | aaa22222 | Www ddeji  |
 
 
+  @Trytry
   Scenario Outline: Login-Negative Test <Situation>
     Given Type "<username>" as username and "<password>" as password
     When Click Sign in button
     Then An alert tip "<alertTip>" is shown in login page
   Examples:
     | Situation                 | username         | password | alertTip              |
-    | Lack 1 password character |t124@qq.com       | aaa2222  | Authentication failed.|
+    | Lack 1 password character |t124@qq.com       | aaa22222  | Authentication failed.|
     | Wrong password            |t124@qq.com       | 12derrrr | Authentication failed.|
     | User yet to register      |t12334444@qq.com  | aaa22222 | Authentication failed.|
