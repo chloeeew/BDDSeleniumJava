@@ -34,6 +34,7 @@ public class DriverFactory {
         System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         // address the popup setting page in Chrome
+        // --headless
         options.addArguments("--start-maximized", "allow-running-insecure-content", "--test-type","--disable-infobars");
         logger.info("Open Chrome Browser");
         return new ChromeDriver(options);
